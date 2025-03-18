@@ -10,7 +10,9 @@ const useRestaurantMenu = (resId) => {
 
   const fetchMenu = async () => {
     try {
-        const response = await fetch(`https://swiggy-proxy-production.up.railway.app/menu?resId=${resId}`); // ✅ Corrected
+        const response = await fetch(`http://localhost:2000/menu?resId=${resId}`); 
+
+
         if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
         const json = await response.json();
         setResInfo(json.data.data);

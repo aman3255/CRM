@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   })
 );
@@ -19,11 +19,13 @@ app.use(cookieParser());
 app.use(express.json());
 
 const authRouter = require("./routes/auth");
+const resRouter = require("./routes/resdata");
 
 
 const server = http.createServer(app);
 
 app.use("/", authRouter);
+app.use("/", resRouter);
 
 connectDB()
   .then(() => {

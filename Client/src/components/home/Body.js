@@ -39,9 +39,10 @@ const Body = () => {
   const fetchData = async () => {
     const { latitude, longitude } = await getLocation();
     const data = await fetch(
-      `https://swiggy-proxy-production.up.railway.app/restaurant?latitude=${latitude}&longitude=${longitude}`
+      
+      `http://localhost:2000/restaurant?latitude=${latitude}&longitude=${longitude}`
     );
-
+// `https://swiggy-proxy-production.up.railway.app/restaurant?latitude=${latitude}&longitude=${longitude}
     
     const json = await data.json();
     // Optional Chaining
