@@ -47,6 +47,7 @@ const Cart = () => {
           )}
         </div>
         <div className="w-2/3 text-right font-medium m-3 text-xl tracking-wider">
+        <button className="p-2 m-2 border-2 border-black rounded-lg">Order Now</button>        
           <span className="text-2xl">Total:</span> Rs.
           {totalPrice / 100}
         </div>

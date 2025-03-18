@@ -13,6 +13,7 @@ import Dashboard from "./components/home/DashBoard";
 import Shimmer from "./components/common/Shimmer";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
+import Auth from "./components/auth/Auth";
 
 const Contact = lazy(() => import("./components/contact/Contact"));
 const About = lazy(() => import("./components/about/About"));
@@ -92,6 +93,14 @@ const appRouter = createBrowserRouter([
         element: (
           <Suspense fallback={<h1>Loading..</h1>}>
             <RestaurantMenu />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense fallback={<h1>Loading..</h1>}>
+            <Auth />
           </Suspense>
         ),
       },

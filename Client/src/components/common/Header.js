@@ -67,6 +67,7 @@ const Header = () => {
               <Link to={"/cart"}>Cart🛒({cartItems.length})</Link>
             </li>
           </ul>
+          <Link to={"/login"}>
           <button
             className="px-4 mr-5 py-2 bg-indigo-100 font-medium border-2 border-indigo-400 border-x-indigo-800 hover:bg-indigo-200 rounded-md"
             onClick={() => {
@@ -74,7 +75,7 @@ const Header = () => {
             }}
           >
             {btnName}
-          </button>
+          </button></Link>
         </div>
       </div>
       <hr></hr>
