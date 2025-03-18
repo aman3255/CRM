@@ -1,0 +1,11 @@
+/node_modules
+/dist
+.parcel-cache
+notes.md
+/src/components/User.js
+/src/components/UserClass.js
+/coverage
+/src/util/firebase.js
+/firebase.json
+.firebaserc
+.firebase/
