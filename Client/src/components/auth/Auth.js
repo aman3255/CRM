@@ -10,6 +10,7 @@ const Auth = () => {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,12 +21,15 @@ const Auth = () => {
       setError("Email and Password are required");
       return;
     }
+    setIsLoading(true);
     try {
       await axios.post("http://localhost:2000/login", { emailId, password }, { withCredentials: true });
       setSuccess("Login successful! Redirecting...");
       setTimeout(() => navigate("/restaurants"), 1500);
     } catch (err) {
       setError(err?.response?.data || "Invalid email or password!");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -40,20 +44,23 @@ const Auth = () => {
       setError("Password must be at least 6 characters long");
       return;
     }
+    setIsLoading(true);
     try {
       await axios.post("http://localhost:2000/signup", { firstName, lastName, emailId, password }, { withCredentials: true });
       setSuccess("Signup successful! Redirecting...");
       setTimeout(() => navigate("/"), 1500);
     } catch (err) {
       setError(err?.response?.data || "Signup failed! Try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-6">
+    <div className="flex justify-center items-center min-h-screen bg-white p-6">
       <div className="bg-white shadow-2xl rounded-lg p-8 w-full max-w-md border border-gray-200">
-        {success && <p className="text-green-600 text-center font-semibold mb-4">{success}</p>}
-        {error && <p className="text-red-500 text-center font-semibold mb-4">{error}</p>}
+        {success && <p className="text-green-600 text-center font-semibold mb-4 transition duration-500 ease-in-out">{success}</p>}
+        {error && <p className="text-red-500 text-center font-semibold mb-4 transition duration-500 ease-in-out">{error}</p>}
         <h2 className="text-3xl font-bold text-center text-gray-700 mb-6">
           {isLoginForm ? "Login" : "Signup"}
         </h2>
@@ -64,14 +71,14 @@ const Auth = () => {
                 type="text"
                 placeholder="First Name"
                 value={firstName}
-                className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 hover:border-blue-500 transition duration-300 shadow-sm"
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <input
                 type="text"
                 placeholder="Last Name"
                 value={lastName}
-                className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 hover:border-blue-500 transition duration-300 shadow-sm"
                 onChange={(e) => setLastName(e.target.value)}
               />
             </>
@@ -80,14 +87,14 @@ const Auth = () => {
             type="email"
             placeholder="Email Address"
             value={emailId}
-            className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 hover:border-blue-500 transition duration-300 shadow-sm"
             onChange={(e) => setEmailId(e.target.value)}
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
-            className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            className="input input-bordered w-full h-12 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 hover:border-blue-500 transition duration-300 shadow-sm"
             onChange={(e) => setPassword(e.target.value)}
           />
           <p className="text-sm text-center text-gray-600">
@@ -101,10 +108,11 @@ const Auth = () => {
           </p>
           <button
             type="button"
-            className="w-full h-12 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all shadow-md"
+            className="w-full h-12 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-all shadow-md transform hover:scale-105"
             onClick={isLoginForm ? handleLogin : handleSignup}
+            disabled={isLoading}
           >
-            {isLoginForm ? "Login" : "Signup"}
+            {isLoading ? "Loading..." : isLoginForm ? "Login" : "Signup"}
           </button>
         </form>
       </div>
