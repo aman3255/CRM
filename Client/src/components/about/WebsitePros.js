@@ -1,6 +1,6 @@
-import multicuisine from "../images/MultiCuisine.png";
-import easyorder from "../images/easyorder.png";
-import fastdeliver from "../images/FastDeliver.png";
+import multicuisine from "../../images/MultiCuisine.png";
+import easyorder from "../../images/easyorder.png";
+import fastdeliver from "../../images/FastDeliver.png";
 
 const WebsitePros = () => {
   return (

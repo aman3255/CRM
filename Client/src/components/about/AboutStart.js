@@ -1,5 +1,5 @@
-import about1 from "../images/About1.jpg";
-import about2 from "../images/About2.webp";
+import about1 from "../../images/About1.jpg";
+import about2 from "../../images/About2.webp";
 import { Link } from "react-router-dom";
 
 const AboutStart = ({ showButton, showImage }) => {

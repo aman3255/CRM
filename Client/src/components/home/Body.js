@@ -1,8 +1,8 @@
-import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "../restaurant/RestaurantCard.js";
 import { useEffect, useState, useContext } from "react";
-import Shimmer from "./Shimmer.js";
+import Shimmer from "../common/Shimmer.js";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../util/useOnlineStatus.js";
+import useOnlineStatus from "../../util/useOnlineStatus.js";
 
 const Body = () => {
   const [listofRestaurant, setListofRestaurant] = useState([]);

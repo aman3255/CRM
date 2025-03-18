@@ -1,13 +1,13 @@
-import food1 from "../images/Food1.jpg";
-import food2 from "../images/Food2.jpg";
-import food3 from "../images/Food3.jpg";
-import food4 from "../images/Food4.jpg";
-import twitter from "../images/TwitterLogo.png";
-import facebook from "../images/facebookLogo.png";
-import instagram from "../images/InstagramLogo.png";
-import github from "../images/GithubLogo.png";
+import food1 from "../../images/Food1.jpg";
+import food2 from "../../images/Food2.jpg";
+import food3 from "../../images/Food3.jpg";
+import food4 from "../../images/Food4.jpg";
+import twitter from "../../images/TwitterLogo.png";
+import facebook from "../../images/facebookLogo.png";
+import instagram from "../../images/InstagramLogo.png";
+import github from "../../images/GithubLogo.png";
 import { Link } from "react-router-dom";
-import { GITHUB_URL } from "../util/constant";
+import { GITHUB_URL } from "../../util/constant";
 
 const Footer = () => {
   return (

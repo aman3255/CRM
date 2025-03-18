@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import Item from "./Item";
+import Item from "../restaurant/Item";
 import { Link } from "react-router-dom";
-import { clearCart } from "../util/cartSlice";
+import { clearCart } from "../../util/cartSlice";
 import { useState, useEffect } from "react";
 
 const Cart = () => {

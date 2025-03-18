@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import {
   GITHUB_URL,
   LINKEDIN_URL,
-} from "../util/constant";
-import GITHUB_LOGO  from "../images/GithubLogoContact.png";
-import LINKEDIN_LOGO  from "../images/LinkedInLogoContact.jpg";
+} from "../../util/constant";
+import GITHUB_LOGO  from "../../images/GithubLogoContact.png";
+import LINKEDIN_LOGO  from "../../images/LinkedInLogoContact.jpg";
 
 const Contact = () => {
   return (

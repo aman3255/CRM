@@ -6,21 +6,19 @@ import {
   Outlet,
   ScrollRestoration,
 } from "react-router-dom";
-import Header from "./components/Header";
-import Error from "./components/Error";
-import Dashboard from "./components/DashBoard";
-import Footer from "./components/Footer";
 import UserContext from "./util/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./util/appStore";
-import Shimmer from "./components/Shimmer";
+import Dashboard from "./components/home/DashBoard";
+import Shimmer from "./components/common/Shimmer";
+import Header from "./components/common/Header";
+import Footer from "./components/common/Footer";
 
-const Grocery = lazy(() => import("./components/Grocery"));
-const Contact = lazy(() => import("./components/Contact"));
-const About = lazy(() => import("./components/About"));
-const Body = lazy(() => import("./components/Body"));
-const Cart = lazy(() => import("./components/Cart"));
-const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+const Contact = lazy(() => import("./components/contact/Contact"));
+const About = lazy(() => import("./components/about/About"));
+const Body = lazy(() => import("./components//home/Body"));
+const Cart = lazy(() => import("./components/cart/Cart"));
+const RestaurantMenu = lazy(() => import("./components/restaurant/RestaurantMenu"));
 
 const AppLayout = () => {
   const [userName, setuserName] = useState("Default User");
@@ -81,14 +79,14 @@ const appRouter = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "/grocery",
-        element: (
-          <Suspense fallback={<h1>Loading..</h1>}>
-            <Grocery />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "/grocery",
+      //   element: (
+      //     <Suspense fallback={<h1>Loading..</h1>}>
+      //       <Grocery />
+      //     </Suspense>
+      //   ),
+      // },
       {
         path: "/restaurants/:resId",
         element: (

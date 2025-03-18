@@ -1,7 +1,7 @@
-import dashboard from "../images/Dashboard.jpg";
+import dashboard from "../../images/Dashboard.jpg";
 import { Link } from "react-router-dom";
-import AboutStart from "./AboutStart";
-import UserContext from "../util/UserContext";
+import AboutStart from "../about/AboutStart";
+import UserContext from "../../util/UserContext";
 import { useContext } from "react";
 
 const Dashboard = () => {
