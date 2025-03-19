@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:1234",
+    origin: "http://localhost:51545",
     credentials: true,
   })
 );
@@ -20,12 +20,24 @@ app.use(express.json());
 
 const authRouter = require("./routes/auth");
 const resRouter = require("./routes/resdata");
+const orderRouter = require("./routes/order");
 
 
 const server = http.createServer(app);
 
 app.use("/", authRouter);
 app.use("/", resRouter);
+app.use("/", orderRouter);
+
+app._router.stack.forEach((middleware) => {
+  if (middleware.route) {
+    console.log(middleware.route.path);
+  } else if (middleware.name === 'router') {
+    middleware.handle.stack.forEach((handler) => {
+      if (handler.route) console.log(handler.route.path);
+    });
+  }
+});
 
 connectDB()
   .then(() => {

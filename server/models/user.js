@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema(
         }
       },
     },
+    points: {
+      type: Number,
+      default: 0, // Users start with 0 points
+    },
   },
   { timestamps: true }
 );
